@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gruppspel: Innebandyturnering</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Innebandyturnering - Gruppspel</h1>
+    </header>
+
+    <main>
+        <!-- Gruppspelstabell -->
+        <section id="group-standings">
+            <h2>Gruppspelstabell</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Lag</th>
+                        <th>Matcher</th>
+                        <th>Vinst</th>
+                        <th>Oavgjort</th>
+                        <th>Förlust</th>
+                        <th>Poäng</th>
+                    </tr>
+                </thead>
+                <tbody id="standings"></tbody>
+            </table>
+        </section>
+
+        <!-- Matchschema -->
+        <section id="matchschedule">
+            <h2>Matchschema</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Match</th>
+                        <th>Lag 1</th>
+                        <th>Lag 2</th>
+                        <th>Resultat</th>
+                        <th>Registrera resultat</th>
+                    </tr>
+                </thead>
+                <tbody id="match-list"></tbody>
+            </table>
+        </section>
+    </main>
+
+    <!-- Sektion för att välja lag inför semifinaler -->
+    <section id="select-teams">
+        <h2>Välj lag inför semifinalerna</h2>
+        <div id="team-selection">
+            <label for="team1">Semifinal 1 - Lag 1:</label>
+            <select id="team1">
+                <option value="Lag Hjärter">Lag Hjärter</option>
+                <option value="Lag Ruter">Lag Ruter</option>
+                <option value="Lag Spader">Lag Spader</option>
+                <option value="Lag Klöver">Lag Klöver</option>
+            </select>
+
+            <label for="team2">Semifinal 1 - Lag 2:</label>
+            <select id="team2">
+                <option value="Lag Hjärter">Lag Hjärter</option>
+                <option value="Lag Ruter">Lag Ruter</option>
+                <option value="Lag Spader">Lag Spader</option>
+                <option value="Lag Klöver">Lag Klöver</option>
+            </select>
+
+            <label for="team3">Semifinal 2 - Lag 1:</label>
+            <select id="team3">
+                <option value="Lag Hjärter">Lag Hjärter</option>
+                <option value="Lag Ruter">Lag Ruter</option>
+                <option value="Lag Spader">Lag Spader</option>
+                <option value="Lag Klöver">Lag Klöver</option>
+            </select>
+
+            <label for="team4">Semifinal 2 - Lag 2:</label>
+            <select id="team4">
+                <option value="Lag Hjärter">Lag Hjärter</option>
+                <option value="Lag Ruter">Lag Ruter</option>
+                <option value="Lag Spader">Lag Spader</option>
+                <option value="Lag Klöver">Lag Klöver</option>
+            </select>
+
+            <button onclick="setupPlayoff()">Sätt upp semifinalerna</button>
+        </div>
+    </section>
+
+    <!-- Slutspelsträd -->
+    <section id="playoff">
+        <h2>Slutspelsträd</h2>
+        <div id="playoff-tree">
+            <div id="semifinals">
+                <h3>Semifinaler</h3>
+                <div class="match">
+                    <p id="semi1">Semifinal 1</p>
+                    <input type="text" id="score-semi1" placeholder="Ex: 4-3">
+                    <button onclick="updateSemifinal(1)">Spara resultat</button>
+                </div>
+                <div class="match">
+                    <p id="semi2">Semifinal 2</p>
+                    <input type="text" id="score-semi2" placeholder="Ex: 2-1">
+                    <button onclick="updateSemifinal(2)">Spara resultat</button>
+                </div>
+            </div>
+            <div id="final">
+                <h3>Final</h3>
+                <div class="match">
+                    <p id="final-match">Final Match</p>
+                    <input type="text" id="score-final" placeholder="Ex: 3-2">
+                    <button onclick="updateFinal()">Spara resultat</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
